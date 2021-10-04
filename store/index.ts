@@ -1,6 +1,6 @@
-import { atom } from "recoil";
+import { atom } from 'recoil';
 
 export const modeState = atom<String>({
-  key: "modeState",
-  default: "Basic",
+  key: 'modeState',
+  default: 'Basic',
 });

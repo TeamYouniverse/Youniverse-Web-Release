@@ -1,5 +1,5 @@
-import { RecoilRoot } from "recoil";
-import "../styles/globals.css";
+import { RecoilRoot } from 'recoil';
+import '../styles/globals.css';
 
 function MyApp({ Component, pageProps }) {
   return (
