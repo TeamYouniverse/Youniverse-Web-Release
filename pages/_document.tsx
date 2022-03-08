@@ -1,10 +1,10 @@
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 import React from 'react';
 
 export default class MyDocument extends Document {
   render() {
     return (
-      <html>
+      <Html>
         <Head>
           <title></title>
           <meta charSet="UTF-8" />
@@ -30,7 +30,7 @@ export default class MyDocument extends Document {
             <NextScript />
           </div>
         </body>
-      </html>
+      </Html>
     );
   }
 }
