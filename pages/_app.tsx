@@ -1,12 +1,6 @@
-import { RecoilRoot } from 'recoil';
 import '../styles/globals.css';
-
+import { wrapper } from '../store';
 function MyApp({ Component, pageProps }) {
-  return (
-    <RecoilRoot>
-      <Component {...pageProps} />
-    </RecoilRoot>
-  );
+  return <Component {...pageProps} />;
 }
-
-export default MyApp;
+export default wrapper.withRedux(MyApp);
