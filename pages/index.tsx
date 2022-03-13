@@ -4,10 +4,12 @@ import { RootState } from '../store/modules';
 import * as userActions from '../store/modules/user';
 
 function index() {
+  // 정의된 리듀서를 사용할 수 있도록 해주는 애 : dispatch
   const dispatch = useDispatch();
+  // useSelector를 통해서 store에 있는 state를 데려올 수 있음
   const user = useSelector(({ user }: RootState) => user);
   const [newUser, setNewUser] = useState({
-    id: 2,
+    id: user?.id,
     name: user?.name,
   });
 
@@ -28,6 +30,7 @@ function index() {
     }
   };
   const onClickHandler = () => {
+    // 아까 정의한 리듀서 함수를 사용
     dispatch(userActions.addUser(newUser));
     console.log('>>newUser', newUser);
   };
