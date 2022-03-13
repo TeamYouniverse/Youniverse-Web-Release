@@ -10,7 +10,7 @@ const initialState = {
 } as User;
 
 // 슬라이스
-const counterSlice = createSlice({
+const userSlice = createSlice({
   name: 'user',
   initialState,
   reducers: {
@@ -25,5 +25,5 @@ const counterSlice = createSlice({
     },
   },
 });
-export const { addUser } = counterSlice.actions;
-export default counterSlice.reducer;
+export const { addUser } = userSlice.actions;
+export default userSlice.reducer;
