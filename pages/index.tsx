@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { RootState } from '../store/modules';
-import * as userActions from '../store/modules/user';
+import { RootState } from '../src/store/modules';
+import * as userActions from '../src/store/modules/user';
 
 function index() {
   // 정의된 리듀서를 사용할 수 있도록 해주는 애 : dispatch
