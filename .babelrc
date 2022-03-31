@@ -6,7 +6,17 @@
       {
         "root": ["./"],
         "alias": {
-          "@src": "./src"
+          "@src": "src",
+          "@assets": "./src/assets",
+          "@components": "./src/components",
+          "@hooks": "./src/hooks",
+          "@api": "./src/lib/api",
+          "@constants": "./src/lib/constants",
+          "@store": "./src/store",
+          "@styles": "./src/styles",
+          "@types": "./src/types",
+          "@utils": "./src/utils",
+          "@json-server": "./src/json-server"
         },
         "extensions": [".js", ".jsx", ".tsx", ".ts"]
       }
