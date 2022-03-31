@@ -5,7 +5,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-    Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    Fira Sans, Droid Sans, JejuMyeongjo, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -15,4 +15,10 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'JejuMyeongjo';
+  font-weight: 400;
+  src: url('/fonts/JejuMyeongjo.ttf') format('truetype');
 }
