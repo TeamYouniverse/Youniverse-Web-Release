@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from '@emotion/styled';
 import mainPlanet from '@assets/planet_main.svg';
 import happyPlanet from '@assets/planet_happy.svg';
@@ -6,33 +6,63 @@ import sadPlanet from '@assets/planet_sad.svg';
 import sorryPlanet from '@assets/planet_sorry.svg';
 import touchedPlanet from '@assets/planet_touched.svg';
 import verifyBtn from '@assets/verifyBtn.svg';
+import { useRouter } from 'next/router';
 
 function UserSpace() {
+  // @TODO 서버 연결 이후 initialProps로 받아오도록 수정
+  const [userName, setUserName] = useState('고양이냥');
+  const router = useRouter();
+  const {
+    query: { id },
+  } = router;
+
+  const onClickHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    const type = e.currentTarget.id;
+    console.log(type);
+    switch (type) {
+      case 'main':
+        router.push(`/${id}/write`);
+        break;
+      case 'happy':
+        router.push(`/${id}/happy`);
+        break;
+      case 'sad':
+        router.push(`/${id}/sad`);
+        break;
+      case 'sorry':
+        router.push(`/${id}/sorry`);
+        break;
+      case 'touched':
+        router.push(`/${id}/touched`);
+        break;
+      case 'verify':
+        router.push(`/${id}/verify`);
+        break;
+    }
+  };
   return (
-    <Styled.mainPlanetBtn>
-      <Styled.planetTitle>고양이냥</Styled.planetTitle>
-      <Styled.happyPlanetBtn />
-      <Styled.sadPlanetBtn />
-      <Styled.sorryPlanetBtn />
-      <Styled.touchedPlanetBtn />
-      <Styled.verifyBtn />
-    </Styled.mainPlanetBtn>
+    <Styled.mainPlanetBtn2>
+      <Styled.mainPlanetBtn id="main" onClick={onClickHandler} />
+      <Styled.planetTitle>{userName}</Styled.planetTitle>
+      <Styled.happyPlanetBtn id="happy" onClick={onClickHandler} />
+      <Styled.sadPlanetBtn id="sad" onClick={onClickHandler} />
+      <Styled.sorryPlanetBtn id="sorry" onClick={onClickHandler} />
+      <Styled.touchedPlanetBtn id="touched" onClick={onClickHandler} />
+      <Styled.verifyBtn id="verify" onClick={onClickHandler} />
+    </Styled.mainPlanetBtn2>
   );
 }
 
 export default UserSpace;
 
 const Styled = {
-  mainPlanetBtn: styled.button`
-    width: 255px;
-    height: 255px;
-    background: url(${mainPlanet.src});
-    background-size: cover;
+  mainPlanetBtn2: styled.main`
     position: relative;
     display: flex;
     justify-content: center;
+    width: 255px;
+    height: 255px;
     top: 33vh;
-    cursor: pointer;
     & * {
       position: absolute;
       cursor: pointer;
@@ -45,6 +75,13 @@ const Styled = {
       width: 200px;
       height: 200px;
     }
+  `,
+  mainPlanetBtn: styled.button`
+    width: 100%;
+    height: 100%;
+    background: url(${mainPlanet.src});
+    background-size: cover;
+    top: 0;
   `,
   planetTitle: styled.h1`
     color: white;
