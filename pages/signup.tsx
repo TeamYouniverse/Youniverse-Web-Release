@@ -2,19 +2,17 @@ import IntroduceSentence from '@components/common/IntroduceSentence';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/dist/client/router';
 import React from 'react';
-import { useState } from 'react';
 import Image from 'next/image';
 import CenterStar from '@assets/center-star.svg';
 import UnderlinedButton from '@src/components/common/UnderlinedButton';
 import { flexColumnCenter } from '@src/lib/style/mixin';
 import { nameValidator } from '@src/validation/nameValidator';
 import Header from '@src/components/common/Header';
-import { REGEXP } from '@src/utils/regexp';
 import NameInput from '@src/components/common/NameInput';
 import PwInput from '@src/components/common/PwInput';
 import { pwValidator } from '@src/validation/pwValidator';
 
-function Signin() {
+function Signup() {
   const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -55,7 +53,7 @@ function Signin() {
   );
 }
 
-export default Signin;
+export default Signup;
 
 const Styled = {
   Root: styled.div`
@@ -72,25 +70,17 @@ const Styled = {
     width: 100%;
     margin-bottom: 21px;
 
-    & > p {
+    /* & > p {
       line-height: 20px;
       height: 10px;
       margin: 5px 0;
       font-size: 10px;
       color: #ffc5c5;
-    }
+    } */
   `,
   PwWrapper: styled.div`
     width: 100%;
     margin-bottom: 51px;
-
-    & > p {
-      line-height: 20px;
-      height: 10px;
-      margin: 5px 0;
-      font-size: 10px;
-      color: #ffc5c5;
-    }
   `,
   Form: styled.form`
     font-size: 15px;
@@ -101,21 +91,6 @@ const Styled = {
     label {
       margin-bottom: 20px;
       display: block;
-    }
-
-    input {
-      display: block;
-      background: transparent;
-      outline: 0;
-      border: 0;
-      width: 100%;
-      border-bottom: 1px solid white;
-      padding-bottom: 10px;
-      color: white;
-    }
-
-    input::placeholder {
-      color: #565656;
     }
   `,
 };

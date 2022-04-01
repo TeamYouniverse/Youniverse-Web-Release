@@ -2,6 +2,8 @@ import { REGEXP } from '@src/utils/regexp';
 import { pwValidator } from '@src/validation/pwValidator';
 import React from 'react';
 import { useState } from 'react';
+import styled from '@emotion/styled';
+import { MESSAGE } from '@src/constants/message';
 
 function PwInput() {
   const [pw, setPw] = useState<number>();
@@ -16,7 +18,7 @@ function PwInput() {
 
     try {
       if (pwValidator(value)) {
-        setMessageForPw('');
+        setMessageForPw(MESSAGE.VALID_PW);
       }
     } catch ({ message }) {
       setMessageForPw(message);
@@ -49,7 +51,7 @@ function PwInput() {
 
   return (
     <>
-      <input
+      <Styled.Input
         id="pw-input"
         type="number"
         placeholder="ex. 1234"
@@ -58,9 +60,33 @@ function PwInput() {
         onKeyDown={handlePwKeyPress}
         onInput={handlePwInput}
       />
-      <p>{messageForPw}</p>
+      <Styled.Message messageForPw={messageForPw}>{messageForPw}</Styled.Message>
     </>
   );
 }
 
 export default PwInput;
+
+const Styled = {
+  Input: styled.input`
+    display: block;
+    background: transparent;
+    outline: 0;
+    border: 0;
+    width: 100%;
+    border-bottom: 1px solid white;
+    padding-bottom: 10px;
+    color: white;
+
+    &::placeholder {
+      color: #565656;
+    }
+  `,
+  Message: styled.p<{ messageForPw: string }>`
+    color: ${({ messageForPw }) => (messageForPw === MESSAGE.VALID_PW ? 'white' : '#ffc5c5')};
+    line-height: 20px;
+    height: 10px;
+    margin: 5px 0;
+    font-size: 10px;
+  `,
+};
