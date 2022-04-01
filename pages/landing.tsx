@@ -1,22 +1,27 @@
 import styled from '@emotion/styled';
 import Header from '@src/components/common/Header';
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
 import planetImage from '@assets/planet_main.svg';
 import IntroduceSentence from '@src/components/common/IntroduceSentence';
+import Message from '@src/components/Landing/Message';
 
 function landing() {
+  const [order, setOrder] = useState<'first' | 'second'>('first');
+
+  useEffect(() => {
+    setInterval(() => {
+      setOrder('second');
+    }, 2500);
+  }, []);
+
   return (
     <>
       <Header />
       <Styled.Main>
         <Styled.TextWrapper>
           <IntroduceSentence />
-          <p>
-            나만의 우주를 만들어보세요.
-            <br />
-            행성이 감정을 담아둘거예요.
-          </p>
+          <Message order={order} />
         </Styled.TextWrapper>
         <Styled.PlanetWrapper>
           <Image src={planetImage} alt="planet image" />
