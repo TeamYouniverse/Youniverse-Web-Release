@@ -3,6 +3,8 @@ import styled from '@emotion/styled';
 import { useRouter } from 'next/dist/client/router';
 import React from 'react';
 import { useState } from 'react';
+import Image from 'next/image';
+import CenterStar from '@assets/center-star.svg';
 
 function Signin() {
   const router = useRouter();
@@ -25,6 +27,9 @@ function Signin() {
   return (
     <Styled.Root>
       <IntroduceSentence />
+      <Styled.ImageWrapper>
+        <Image src={CenterStar} alt="star" />
+      </Styled.ImageWrapper>
       <Styled.Form onSubmit={handleSubmit}>
         <label htmlFor="name-input">당신의 우주 이름을 정해주세요.</label>
         <input
@@ -51,7 +56,14 @@ function Signin() {
 export default Signin;
 
 const Styled = {
-  Root: styled.div``,
+  Root: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  `,
+  ImageWrapper: styled.div`
+    margin-bottom: 50px;
+  `,
   Form: styled.form`
     font-size: 15px;
     color: white;
@@ -68,6 +80,7 @@ const Styled = {
       border: 0;
       width: 100%;
       border-bottom: 1px solid white;
+      padding-bottom: 10px;
     }
 
     input::placeholder {
