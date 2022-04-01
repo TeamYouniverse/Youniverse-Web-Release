@@ -1,5 +1,5 @@
 import { REGEXP } from '@src/utils/regexp';
-import { pwValidator } from '@src/utils/validation/pwValidator';
+import { pwValidator } from '@src/utils/validations/pwValidator';
 import React from 'react';
 import { useState } from 'react';
 import styled from '@emotion/styled';
