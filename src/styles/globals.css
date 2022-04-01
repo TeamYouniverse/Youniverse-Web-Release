@@ -10,6 +10,12 @@ body {
     Fira Sans, Droid Sans, JejuMyeongjo, Helvetica Neue, sans-serif;
 }
 
+button {
+  outline: 0;
+  border: 0;
+  background: none;
+}
+
 input,
 textarea,
 button {
@@ -25,8 +31,8 @@ body {
   display: flex;
   justify-content: center;
   background: url('@assets/common-background.svg');
-  width: 500px;
-  max-width: 500px;
+  width: 600px;
+  max-width: 600px;
   height: 100%;
 }
 
