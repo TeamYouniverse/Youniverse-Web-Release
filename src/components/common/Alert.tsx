@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
 import React from 'react';
+import starIcon from '@assets/star.svg';
+import Image from 'next/image';
 
 interface AlertProps {
   message: String;
@@ -14,7 +16,7 @@ function Alert(props: AlertProps) {
     <Styled.Root>
       <Styled.PopUpWrapper>
         <Styled.MessageWrapper>
-          <Styled.StarImage />
+          <Image width="24px" height="31px" src={starIcon} alt=":)" />
           <Styled.AlertMessage>{props.message}</Styled.AlertMessage>
         </Styled.MessageWrapper>
         <Styled.ButtonWrapper>
@@ -55,15 +57,32 @@ const Styled = {
     box-shadow: 0px 70px 40px rgba(14, 19, 78, 0.137074);
     backdrop-filter: blur(19.028px);
     border-radius: 3px;
-
-    /* @media (max-width: 413px) {
-      width: 90%;
-    } */
   `,
-  MessageWrapper: styled.div``,
-  StarImage: styled.image``,
-  AlertMessage: styled.text``,
-  ButtonWrapper: styled.div``,
-  LeftButton: styled.button``,
-  RightButton: styled.button``,
+  MessageWrapper: styled.div`
+    height: 105px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  `,
+  AlertMessage: styled.text`
+    margin-top: 5px;
+    font-size: 14px;
+    color: #dadada;
+  `,
+  ButtonWrapper: styled.div`
+    display: flex;
+    direction: row;
+    border-top: 1px solid #59595e;
+    height: 45px;
+  `,
+  LeftButton: styled.button`
+    width: 50%;
+    border-right: 1px solid #59595e;
+    color: #dadada;
+  `,
+  RightButton: styled.button`
+    width: 50%;
+    color: #dadada;
+  `,
 };
