@@ -4,7 +4,7 @@ import { useState } from 'react';
 import styled from '@emotion/styled';
 import { MESSAGE } from '@src/constants/message';
 
-function NameInput() {
+function NameInput({ valid = true }: { valid?: boolean }) {
   const [name, setName] = useState('');
   const [messageForName, setMessageForName] = useState('');
 
@@ -28,7 +28,7 @@ function NameInput() {
         value={name}
         onChange={handleNameChange}
       />
-      <Styled.Message messageForName={messageForName}>{messageForName}</Styled.Message>
+      {valid && <Styled.Message messageForName={messageForName}>{messageForName}</Styled.Message>}
     </>
   );
 }

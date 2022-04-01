@@ -1,7 +1,7 @@
 import IntroduceSentence from '@components/common/IntroduceSentence';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/dist/client/router';
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import CenterStar from '@assets/center-star.svg';
 import UnderlinedButton from '@src/components/common/UnderlinedButton';
@@ -11,23 +11,9 @@ import Header from '@src/components/common/Header';
 import NameInput from '@src/components/common/NameInput';
 import PwInput from '@src/components/common/PwInput';
 import { pwValidator } from '@src/validation/pwValidator';
-import { MESSAGE } from '@src/constants/message';
 
-function Signup() {
+function Login() {
   const router = useRouter();
-  const [name, setName] = useState('');
-  const [messageForName, setMessageForName] = useState('');
-
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    try {
-      if (nameValidator(e.target.value)) {
-        setMessageForName(MESSAGE.VALID_NAME);
-      }
-    } catch ({ message }) {
-      setMessageForName(message);
-    }
-    setName(e.target.value);
-  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -55,11 +41,11 @@ function Signup() {
       <Styled.Form onSubmit={handleSubmit}>
         <Styled.NameWrapper>
           <label htmlFor="name-input">당신의 우주 이름을 정해주세요.</label>
-          <NameInput />
+          <NameInput valid={false} />
         </Styled.NameWrapper>
         <Styled.PwWrapper>
           <label htmlFor="pw-input">비밀번호 숫자 4자리를 입력해주세요.</label>
-          <PwInput />
+          <PwInput valid={false} />
         </Styled.PwWrapper>
         <UnderlinedButton>생성</UnderlinedButton>
       </Styled.Form>
@@ -67,7 +53,7 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default Login;
 
 const Styled = {
   Root: styled.div`

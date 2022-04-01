@@ -5,7 +5,7 @@ import { useState } from 'react';
 import styled from '@emotion/styled';
 import { MESSAGE } from '@src/constants/message';
 
-function PwInput() {
+function PwInput({ valid = true }: { valid?: boolean }) {
   const [pw, setPw] = useState<number>();
   const [messageForPw, setMessageForPw] = useState('');
 
@@ -60,7 +60,7 @@ function PwInput() {
         onKeyDown={handlePwKeyPress}
         onInput={handlePwInput}
       />
-      <Styled.Message messageForPw={messageForPw}>{messageForPw}</Styled.Message>
+      {valid && <Styled.Message messageForPw={messageForPw}>{messageForPw}</Styled.Message>}
     </>
   );
 }
