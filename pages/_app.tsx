@@ -1,4 +1,4 @@
-import '@src/styles/globals.css';
+import '@styles/globals.css';
 import { wrapper } from '@store';
 import { ThemeProvider } from '@emotion/react';
 import theme from '@style/theme';
