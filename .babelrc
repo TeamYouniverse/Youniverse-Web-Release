@@ -11,6 +11,7 @@
           "@components": "./src/components",
           "@hooks": "./src/hooks",
           "@api": "./src/lib/api",
+          "@style": "./src/lib/style",
           "@constants": "./src/lib/constants",
           "@store": "./src/store",
           "@styles": "./src/styles",
