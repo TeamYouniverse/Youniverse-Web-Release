@@ -1,8 +1,8 @@
-import { nameValidator } from '@src/utils/validations/nameValidator';
 import React from 'react';
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import { MESSAGE } from '@src/constants/message';
+import { validate } from '@src/utils/validations/nameValidator';
 
 function NameInput({ valid = true }: { valid?: boolean }) {
   const [name, setName] = useState('');
@@ -10,7 +10,7 @@ function NameInput({ valid = true }: { valid?: boolean }) {
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     try {
-      if (nameValidator(e.target.value)) {
+      if (validate('name', e.target.value)) {
         setMessageForName(MESSAGE.VALID_NAME);
       }
     } catch ({ message }) {

@@ -1,10 +1,10 @@
 import { REGEXP } from '@src/utils/regexp';
-import { pwValidator } from '@src/utils/validations/pwValidator';
 import React from 'react';
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import { MESSAGE } from '@src/constants/message';
 import { PW_DIGIT } from '@src/constants';
+import { validate } from '@src/utils/validations/nameValidator';
 
 function PwInput({ valid = true }: { valid?: boolean }) {
   const [pw, setPw] = useState<number>();
@@ -18,7 +18,7 @@ function PwInput({ valid = true }: { valid?: boolean }) {
     if (value.toString().length > PW_DIGIT) return;
 
     try {
-      if (pwValidator(value)) {
+      if (validate('pw', value)) {
         setMessageForPw(MESSAGE.VALID_PW);
       }
     } catch ({ message }) {

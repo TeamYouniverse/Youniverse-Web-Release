@@ -6,14 +6,13 @@ import Image from 'next/image';
 import CenterStar from '@assets/center-star.svg';
 import UnderlinedButton from '@src/components/common/UnderlinedButton';
 import { flexColumnCenter } from '@src/lib/style/mixin';
-import { nameValidator } from '@src/utils/validations/nameValidator';
 import Header from '@src/components/common/Header';
 import NameInput from '@src/components/common/NameInput';
 import PwInput from '@src/components/common/PwInput';
-import { pwValidator } from '@src/utils/validations/pwValidator';
 import ToastMessage from '@src/components/common/ToastMessage';
 import { useState } from 'react';
 import { TOAST_DELAY } from '@src/constants';
+import { validate } from '@src/utils/validations/nameValidator';
 
 function Login() {
   const router = useRouter();
@@ -26,7 +25,7 @@ function Login() {
     const $pw = e.target.elements[1] as HTMLInputElement;
 
     try {
-      if (!nameValidator($name.value) || !pwValidator($pw.valueAsNumber)) return;
+      if (!validate('name', $name.value) || !validate('pw', $pw.valueAsNumber)) return;
     } catch (error) {
       setToast(true);
       if (!toast) {

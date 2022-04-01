@@ -1,33 +1,18 @@
 import IntroduceSentence from '@components/common/IntroduceSentence';
 import styled from '@emotion/styled';
 import { useRouter } from 'next/dist/client/router';
-import React, { useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import CenterStar from '@assets/center-star.svg';
 import UnderlinedButton from '@src/components/common/UnderlinedButton';
 import { flexColumnCenter } from '@src/lib/style/mixin';
-import { nameValidator } from '@src/utils/validations/nameValidator';
 import Header from '@src/components/common/Header';
 import NameInput from '@src/components/common/NameInput';
 import PwInput from '@src/components/common/PwInput';
-import { pwValidator } from '@src/utils/validations/pwValidator';
-import { MESSAGE } from '@src/constants/message';
+import { validate } from '@src/utils/validations/nameValidator';
 
 function Signup() {
   const router = useRouter();
-  const [name, setName] = useState('');
-  const [messageForName, setMessageForName] = useState('');
-
-  const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    try {
-      if (nameValidator(e.target.value)) {
-        setMessageForName(MESSAGE.VALID_NAME);
-      }
-    } catch ({ message }) {
-      setMessageForName(message);
-    }
-    setName(e.target.value);
-  };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -36,7 +21,7 @@ function Signup() {
     const $pw = e.target.elements[1] as HTMLInputElement;
 
     try {
-      if (!nameValidator($name.value) || !pwValidator($pw.valueAsNumber)) return;
+      if (!validate('name', $name.value) || !validate('pw', $pw.valueAsNumber)) return;
     } catch (error) {
       return;
     }
