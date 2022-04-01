@@ -12,20 +12,17 @@ interface AlertProps {
 }
 
 function Alert(props: AlertProps) {
+  const { message, leftButtonTitle, rightButtonTitle, handleLeftClick, handleRightClick } = props;
   return (
     <Styled.Root>
       <Styled.PopUpWrapper>
         <Styled.MessageWrapper>
           <Image width="24px" height="31px" src={starIcon} alt=":)" />
-          <Styled.AlertMessage>{props.message}</Styled.AlertMessage>
+          <Styled.AlertMessage>{message}</Styled.AlertMessage>
         </Styled.MessageWrapper>
         <Styled.ButtonWrapper>
-          <Styled.LeftButton onClick={props.handleLeftClick}>
-            {props.leftButtonTitle}
-          </Styled.LeftButton>
-          <Styled.RightButton onClick={props.handleRightClick}>
-            {props.rightButtonTitle}
-          </Styled.RightButton>
+          <Styled.LeftButton onClick={handleLeftClick}>{leftButtonTitle}</Styled.LeftButton>
+          <Styled.RightButton onClick={handleRightClick}>{rightButtonTitle}</Styled.RightButton>
         </Styled.ButtonWrapper>
       </Styled.PopUpWrapper>
     </Styled.Root>
@@ -65,7 +62,7 @@ const Styled = {
     justify-content: center;
     align-items: center;
   `,
-  AlertMessage: styled.text`
+  AlertMessage: styled.p`
     margin-top: 5px;
     font-size: 14px;
     color: #dadada;

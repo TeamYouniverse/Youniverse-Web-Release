@@ -4,7 +4,6 @@ import { RootState } from '@store/modules';
 import * as userActions from '@store/modules/user';
 import UnderlinedButton from '@src/components/common/UnderlinedButton';
 import Header from '@src/components/common/Header';
-import Alert from '@src/components/common/Alert';
 
 function index() {
   // 정의된 리듀서를 사용할 수 있도록 해주는 애 : dispatch
