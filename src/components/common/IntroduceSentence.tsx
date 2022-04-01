@@ -14,7 +14,7 @@ function IntroduceSentence() {
 export default IntroduceSentence;
 
 const Styled = {
-  Root: styled.div`
+  Root: styled.h1`
     color: white;
     font-weight: 400;
     font-size: 15px;
