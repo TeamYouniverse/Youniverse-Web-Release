@@ -7,6 +7,7 @@ import sorryPlanet from '@assets/planet_sorry.svg';
 import touchedPlanet from '@assets/planet_touched.svg';
 import verifyBtn from '@assets/verifyBtn.svg';
 import { useRouter } from 'next/router';
+import Header from '@src/components/common/Header';
 
 function UserSpace() {
   // @TODO 서버 연결 이후 initialProps로 받아오도록 수정
@@ -41,28 +42,31 @@ function UserSpace() {
     }
   };
   return (
-    <Styled.mainPlanetBtn2>
-      <Styled.mainPlanetBtn id="main" onClick={onClickHandler} />
-      <Styled.planetTitle>{userName}</Styled.planetTitle>
-      <Styled.happyPlanetBtn id="happy" onClick={onClickHandler} />
-      <Styled.sadPlanetBtn id="sad" onClick={onClickHandler} />
-      <Styled.sorryPlanetBtn id="sorry" onClick={onClickHandler} />
-      <Styled.touchedPlanetBtn id="touched" onClick={onClickHandler} />
-      <Styled.verifyBtn id="verify" onClick={onClickHandler} />
-    </Styled.mainPlanetBtn2>
+    <>
+      <Header />
+      <Styled.mainWrapper>
+        <Styled.mainPlanetBtn id="main" onClick={onClickHandler} />
+        <Styled.planetTitle>{userName}</Styled.planetTitle>
+        <Styled.happyPlanetBtn id="happy" onClick={onClickHandler} />
+        <Styled.sadPlanetBtn id="sad" onClick={onClickHandler} />
+        <Styled.sorryPlanetBtn id="sorry" onClick={onClickHandler} />
+        <Styled.touchedPlanetBtn id="touched" onClick={onClickHandler} />
+        <Styled.verifyBtn id="verify" onClick={onClickHandler} />
+      </Styled.mainWrapper>
+    </>
   );
 }
 
 export default UserSpace;
 
 const Styled = {
-  mainPlanetBtn2: styled.main`
+  mainWrapper: styled.main`
     position: relative;
     display: flex;
     justify-content: center;
     width: 255px;
     height: 255px;
-    top: 33vh;
+    top: 27vh;
     & * {
       position: absolute;
       cursor: pointer;
@@ -172,7 +176,7 @@ const Styled = {
     height: 49px;
     background: url(${verifyBtn.src});
     background-size: cover;
-    top: 60vh;
+    top: 57vh;
     left: 104%;
     @media (max-width: 413px) {
       top: 57vh;
@@ -183,6 +187,9 @@ const Styled = {
       height: 59px;
       top: 60vh;
       left: 124%;
+    }
+    @media (max-width: 315px) {
+      top: 52vh;
     }
   `,
 };
