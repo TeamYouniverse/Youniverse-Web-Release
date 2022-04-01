@@ -51,13 +51,6 @@ function index() {
         <input id="name" placeholder="유저 이름" onChange={onChangeHandler} />
         <UnderlinedButton handleClick={onClickHandler}>반영하기</UnderlinedButton>
       </section>
-      <Alert
-        message="해당 기록을 삭제하시겠어요?"
-        leftButtonTitle="취소"
-        rightButtonTitle="확인"
-        handleLeftClick={onClickHandler}
-        handleRightClick={onClickHandler}
-      />
     </>
   );
 }
