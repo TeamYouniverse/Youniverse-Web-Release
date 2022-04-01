@@ -32,7 +32,7 @@ function Signup() {
 
   return (
     <Styled.Root>
-      <Header />
+      <Styled.Header />
       <IntroduceSentence />
       <Styled.ImageWrapper>
         <Image src={CenterStar} alt="star" />
@@ -57,10 +57,9 @@ export default Signup;
 const Styled = {
   Root: styled.div`
     ${flexColumnCenter}
-
-    & > header {
-      margin-bottom: 76px;
-    }
+  `,
+  Header: styled(Header)`
+    margin-bottom: 76px;
   `,
   ImageWrapper: styled.div`
     margin-bottom: 50px;
