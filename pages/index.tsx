@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@store/modules';
 import * as userActions from '@store/modules/user';
-import Button from '@src/components/common/Button';
+import UnderlinedButton from '@src/components/common/UnderlinedButton';
 
 function index() {
   // 정의된 리듀서를 사용할 수 있도록 해주는 애 : dispatch
@@ -46,7 +46,7 @@ function index() {
         <h1>새로운 유저 아이디, 이름 입력 후 버튼을 눌러주세요</h1>
         <input id="id" placeholder="유저 아이디" onChange={onChangeHandler} />
         <input id="name" placeholder="유저 이름" onChange={onChangeHandler} />
-        <Button title="반영하기" onClick={onClickHandler} />
+        <UnderlinedButton handleClick={onClickHandler}>반영하기</UnderlinedButton>
       </section>
     </>
   );
