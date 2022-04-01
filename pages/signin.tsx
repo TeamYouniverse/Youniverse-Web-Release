@@ -8,6 +8,8 @@ import CenterStar from '@assets/center-star.svg';
 import UnderlinedButton from '@src/components/common/UnderlinedButton';
 import { flexColumnCenter } from '@src/lib/style/mixin';
 import { signinValidator } from '@src/validation/signinValidator';
+import Header from '@src/components/common/Header';
+import { REGEXP } from '@src/utils/regexp';
 
 function Signin() {
   const router = useRouter();
@@ -28,7 +30,10 @@ function Signin() {
   };
 
   const handlePwChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (REGEXP.NOT_NUMBER_IN_NUMBER_INPUT.test(e.target.value)) return;
     const value = e.target.valueAsNumber;
+
+    if (REGEXP.NOT_NUMBER_IN_NUMBER_INPUT.test(value.toString())) return;
     if (value.toString().length > 4) return;
 
     setPw(value);
@@ -41,8 +46,31 @@ function Signin() {
     router.push('/mylink');
   };
 
+  let keyOnKeyDown: string;
+  let valueAfterKeyDown: string;
+  const handlePwKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (!(e.target instanceof HTMLInputElement)) return;
+    keyOnKeyDown = e.key;
+    const value = e.target.value;
+
+    if (REGEXP.NOT_NUMBER_IN_NUMBER_INPUT.test(keyOnKeyDown) && keyOnKeyDown.length === 1) {
+      valueAfterKeyDown = value;
+      return;
+    }
+  };
+
+  const handlePwInput = (e: React.FormEvent<HTMLInputElement>) => {
+    if (!(e.target instanceof HTMLInputElement)) return;
+
+    if (REGEXP.NOT_NUMBER_IN_NUMBER_INPUT.test(keyOnKeyDown) && keyOnKeyDown.length === 1) {
+      e.target.value = valueAfterKeyDown;
+      return;
+    }
+  };
+
   return (
     <Styled.Root>
+      <Header />
       <IntroduceSentence />
       <Styled.ImageWrapper>
         <Image src={CenterStar} alt="star" />
@@ -67,6 +95,8 @@ function Signin() {
             placeholder="ex. 1234"
             value={pw || ''}
             onChange={handlePwChange}
+            onKeyDown={handlePwKeyPress}
+            onInput={handlePwInput}
           />
           <p></p>
         </Styled.PwWrapper>
@@ -81,6 +111,10 @@ export default Signin;
 const Styled = {
   Root: styled.div`
     ${flexColumnCenter}
+
+    & > header {
+      margin-bottom: 76px;
+    }
   `,
   ImageWrapper: styled.div`
     margin-bottom: 50px;
