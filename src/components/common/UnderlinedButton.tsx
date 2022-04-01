@@ -22,6 +22,7 @@ const Styled = {
     color: white;
     border-bottom: 1px solid white;
     padding: 0px 11px 8px 11px;
+    font-size: 14px;
 
     :disabled {
       color: #565656;

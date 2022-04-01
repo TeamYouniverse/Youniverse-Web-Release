@@ -46,6 +46,10 @@ const Styled = {
     animation-delay: 0.5s;
     animation-duration: 3s;
     animation-name: ${toastAnimation};
+    position: fixed;
+    right: 50%;
+    transform: translateX(50%);
+    bottom: 72px;
   `,
   Message: styled.p`
     width: 100%;
