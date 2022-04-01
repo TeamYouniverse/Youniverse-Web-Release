@@ -4,6 +4,7 @@ import React from 'react';
 import { useState } from 'react';
 import styled from '@emotion/styled';
 import { MESSAGE } from '@src/constants/message';
+import { PW_DIGIT } from '@src/constants';
 
 function PwInput({ valid = true }: { valid?: boolean }) {
   const [pw, setPw] = useState<number>();
@@ -14,7 +15,7 @@ function PwInput({ valid = true }: { valid?: boolean }) {
 
     const value = e.target.valueAsNumber;
 
-    if (value.toString().length > 4) return;
+    if (value.toString().length > PW_DIGIT) return;
 
     try {
       if (pwValidator(value)) {

@@ -13,6 +13,7 @@ import PwInput from '@src/components/common/PwInput';
 import { pwValidator } from '@src/utils/validations/pwValidator';
 import ToastMessage from '@src/components/common/ToastMessage';
 import { useState } from 'react';
+import { TOAST_DELAY } from '@src/constants';
 
 function Login() {
   const router = useRouter();
@@ -31,7 +32,7 @@ function Login() {
       if (!toast) {
         setTimeout(() => {
           setToast(false);
-        }, 3000);
+        }, TOAST_DELAY);
       }
       return;
     }

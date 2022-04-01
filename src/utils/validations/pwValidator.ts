@@ -1,5 +1,8 @@
-function isNot4Digit(num: number) {
-  return num.toString().length !== 4;
+import { PW_DIGIT } from '@src/constants';
+import { ERROR_MESSAGE } from '@src/constants/message';
+
+function isNotProperDigit(num: number) {
+  return num.toString().length !== PW_DIGIT;
 }
 
 interface Validator {
@@ -9,8 +12,8 @@ interface Validator {
 
 const validators: Validator[] = [
   {
-    test: isNot4Digit,
-    message: '비밀번호 4자리를 입력해주세요.',
+    test: isNotProperDigit,
+    message: ERROR_MESSAGE.NOT_PROPER_DIGIT,
   },
 ];
 

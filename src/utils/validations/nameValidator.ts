@@ -1,3 +1,5 @@
+import { ERROR_MESSAGE } from '@src/constants/message';
+
 function hasBlank(str: string) {
   return str.trim() !== str;
 }
@@ -15,11 +17,11 @@ interface Validator {
 const validators: Validator[] = [
   {
     test: hasBlank,
-    message: '이름 앞 뒤, 공백을 제외하고 입력해주세요.',
+    message: ERROR_MESSAGE.HAS_BLANK,
   },
   {
     test: isEmpty,
-    message: '이름을 입력해주세요.',
+    message: ERROR_MESSAGE.EMPTY,
   },
 ];
 
