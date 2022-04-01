@@ -1,3 +1,4 @@
+import { keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import React from 'react';
 
@@ -15,6 +16,25 @@ function ToastMessage({ children }: ToastMessageProps) {
 
 export default ToastMessage;
 
+const toastAnimation = keyframes`
+  0% {
+    visibility: hidden;
+    opacity: 0;
+  }
+  10% {
+    visibility: visible;
+    opacity: 1;
+  }
+  80% {
+    visibility: visible;
+    opacity: 1;
+  }
+  100% {
+    visibility: hidden;
+    opacity: 0;
+  }
+`;
+
 const Styled = {
   Root: styled.div`
     background: #504f5c;
@@ -22,6 +42,10 @@ const Styled = {
     display: flex;
     align-items: center;
     text-align: center;
+    visibility: hidden;
+    animation-delay: 0.5s;
+    animation-duration: 3s;
+    animation-name: ${toastAnimation};
   `,
   Message: styled.p`
     width: 100%;
