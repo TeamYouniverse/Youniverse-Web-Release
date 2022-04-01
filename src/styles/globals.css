@@ -37,6 +37,10 @@ body {
   height: 100%;
 }
 
+#__next {
+  width: 100%;
+}
+
 @media (max-width: 767px) {
   #root {
     width: 414px;
