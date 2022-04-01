@@ -1,16 +1,12 @@
 import { PW_DIGIT } from '@src/constants';
 import { ERROR_MESSAGE } from '@src/constants/message';
+import type { Validator } from './types';
 
 function isNotProperDigit(num: number) {
   return num.toString().length !== PW_DIGIT;
 }
 
-interface Validator {
-  test: (num: number) => boolean;
-  message: string;
-}
-
-const validators: Validator[] = [
+const validators: Validator<number>[] = [
   {
     test: isNotProperDigit,
     message: ERROR_MESSAGE.NOT_PROPER_DIGIT,

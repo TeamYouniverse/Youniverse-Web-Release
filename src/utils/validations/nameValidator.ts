@@ -1,4 +1,5 @@
 import { ERROR_MESSAGE } from '@src/constants/message';
+import type { Validator } from './types';
 
 function hasBlank(str: string) {
   return str.trim() !== str;
@@ -8,13 +9,8 @@ function isEmpty(str: string) {
   return str === '';
 }
 
-interface Validator {
-  test: (str: string) => boolean;
-  message: string;
-}
-
 // @TODO: 이름 중복 체크 추가
-const validators: Validator[] = [
+const validators: Validator<string>[] = [
   {
     test: hasBlank,
     message: ERROR_MESSAGE.HAS_BLANK,
