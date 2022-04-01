@@ -4,9 +4,9 @@ import starIcon from '@assets/star.svg';
 import Image from 'next/image';
 
 interface AlertProps {
-  message: String;
-  leftButtonTitle: String;
-  rightButtonTitle: String;
+  message: string;
+  leftButtonTitle: string;
+  rightButtonTitle: string;
   handleLeftClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   handleRightClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
 }
