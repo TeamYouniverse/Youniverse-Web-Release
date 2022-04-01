@@ -12,13 +12,14 @@ import { signinValidator } from '@src/validation/signinValidator';
 function Signin() {
   const router = useRouter();
   const [name, setName] = useState('');
-  const [messageForName, setMessageForName] = useState(' ');
+  const [messageForName, setMessageForName] = useState('');
   const [pw, setPw] = useState<number>();
+  const [messageForPw, setMessageForPw] = useState('');
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     try {
       if (signinValidator(e.target.value)) {
-        setMessageForName(' ');
+        setMessageForName('');
       }
     } catch ({ message }) {
       setMessageForName(message);
@@ -27,11 +28,16 @@ function Signin() {
   };
 
   const handlePwChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setPw(e.target.valueAsNumber);
+    const value = e.target.valueAsNumber;
+    if (value.toString().length > 4) return;
+
+    setPw(value);
   };
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    if (messageForName || messageForPw) return;
     // @TODO : POST
+
     router.push('/mylink');
   };
 
@@ -59,7 +65,7 @@ function Signin() {
             id="pw-input"
             type="number"
             placeholder="ex. 1234"
-            value={pw}
+            value={pw || ''}
             onChange={handlePwChange}
           />
           <p></p>
