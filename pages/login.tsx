@@ -11,9 +11,12 @@ import Header from '@src/components/common/Header';
 import NameInput from '@src/components/common/NameInput';
 import PwInput from '@src/components/common/PwInput';
 import { pwValidator } from '@src/validation/pwValidator';
+import ToastMessage from '@src/components/common/ToastMessage';
+import { useState } from 'react';
 
 function Login() {
   const router = useRouter();
+  const [toast, setToast] = useState(false);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -24,6 +27,12 @@ function Login() {
     try {
       if (!nameValidator($name.value) || !pwValidator($pw.valueAsNumber)) return;
     } catch (error) {
+      setToast(true);
+      if (!toast) {
+        setTimeout(() => {
+          setToast(false);
+        }, 3000);
+      }
       return;
     }
 
@@ -40,7 +49,7 @@ function Login() {
       </Styled.ImageWrapper>
       <Styled.Form onSubmit={handleSubmit}>
         <Styled.NameWrapper>
-          <label htmlFor="name-input">당신의 우주 이름을 정해주세요.</label>
+          <label htmlFor="name-input">당신의 우주 이름을 적어주세요.</label>
           <NameInput valid={false} />
         </Styled.NameWrapper>
         <Styled.PwWrapper>
@@ -49,6 +58,7 @@ function Login() {
         </Styled.PwWrapper>
         <UnderlinedButton>생성</UnderlinedButton>
       </Styled.Form>
+      {toast && <ToastMessage>우주 이름이나 비밀번호를 확인해주세요.</ToastMessage>}
     </Styled.Root>
   );
 }
@@ -58,6 +68,7 @@ export default Login;
 const Styled = {
   Root: styled.div`
     ${flexColumnCenter}
+    position: relative;
 
     & > header {
       margin-bottom: 76px;
@@ -78,7 +89,7 @@ const Styled = {
     font-size: 15px;
     color: white;
     ${flexColumnCenter};
-    width: 100%;
+    width: 80%;
 
     label {
       margin-bottom: 20px;

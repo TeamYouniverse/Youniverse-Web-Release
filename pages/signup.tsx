@@ -92,7 +92,7 @@ const Styled = {
     font-size: 15px;
     color: white;
     ${flexColumnCenter};
-    width: 100%;
+    width: 80%;
 
     label {
       margin-bottom: 20px;
