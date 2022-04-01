@@ -16,6 +16,13 @@ button {
   background: none;
 }
 
+h1,
+input,
+textarea,
+button {
+  font-family: inherit;
+}
+
 body {
   display: flex;
   justify-content: center;
