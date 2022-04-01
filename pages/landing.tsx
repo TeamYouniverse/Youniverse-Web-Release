@@ -3,6 +3,7 @@ import Header from '@src/components/common/Header';
 import React from 'react';
 import Image from 'next/image';
 import planetImage from '@assets/planet_main.svg';
+import IntroduceSentence from '@src/components/common/IntroduceSentence';
 
 function landing() {
   return (
@@ -10,11 +11,7 @@ function landing() {
       <Header />
       <Styled.Main>
         <Styled.TextWrapper>
-          <p>
-            나와 너의 감정 공유의 시간을 행성에 기록하다,
-            <br />
-            Youniverse
-          </p>
+          <IntroduceSentence />
           <p>
             나만의 우주를 만들어보세요.
             <br />
@@ -37,6 +34,7 @@ const Styled = {
     flex-direction: column;
     align-items: center;
   `,
+
   TextWrapper: styled.div`
     display: flex;
     flex-direction: column;
@@ -44,7 +42,8 @@ const Styled = {
     align-items: center;
     position: relative;
     top: 25vh;
-    height: 20vh;
+    height: 35vh;
+    z-index: 10;
 
     & p {
       color: white;
@@ -58,10 +57,7 @@ const Styled = {
     display: flex;
     justify-content: center;
     position: fixed;
-    bottom: -201px;
-    /* & * {
-      position: fixed;
-      bottom: -201px;
-    } */
+    bottom: -130px;
+    width: 243px;
   `,
 };
