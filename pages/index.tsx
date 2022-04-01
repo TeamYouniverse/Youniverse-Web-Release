@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@store/modules';
 import * as userActions from '@store/modules/user';
 import UnderlinedButton from '@src/components/common/UnderlinedButton';
+import Header from '@src/components/common/Header';
 
 function index() {
   // 정의된 리듀서를 사용할 수 있도록 해주는 애 : dispatch
@@ -38,6 +39,7 @@ function index() {
 
   return (
     <>
+      <Header />
       <section>
         <h1>유저 아이디: {user.id}</h1>
         <h1>유저 이름: {user.name}</h1>
