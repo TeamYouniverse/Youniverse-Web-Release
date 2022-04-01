@@ -2,11 +2,7 @@ import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 import React from 'react';
 
-interface UnderlinedButtonStyledProps {
-  isEnabled?: boolean;
-}
-
-interface ButtonProps extends UnderlinedButtonStyledProps {
+interface ButtonProps {
   children: string;
   handleClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   [key: string]: any;
@@ -22,7 +18,7 @@ function UnderlinedButton({ children, handleClick, ...props }: ButtonProps) {
 export default UnderlinedButton;
 
 const Styled = {
-  Root: styled.button<UnderlinedButtonStyledProps>`
+  Root: styled.button`
     color: white;
     border-bottom: 1px solid white;
     padding: 0px 11px 8px 11px;
