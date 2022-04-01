@@ -1,4 +1,4 @@
-import { nameValidator } from '@src/validation/nameValidator';
+import { nameValidator } from '@src/utils/validation/nameValidator';
 import React from 'react';
 import { useState } from 'react';
 import styled from '@emotion/styled';

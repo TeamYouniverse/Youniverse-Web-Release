@@ -6,11 +6,11 @@ import Image from 'next/image';
 import CenterStar from '@assets/center-star.svg';
 import UnderlinedButton from '@src/components/common/UnderlinedButton';
 import { flexColumnCenter } from '@src/lib/style/mixin';
-import { nameValidator } from '@src/validation/nameValidator';
+import { nameValidator } from '@src/utils/validation/nameValidator';
 import Header from '@src/components/common/Header';
 import NameInput from '@src/components/common/NameInput';
 import PwInput from '@src/components/common/PwInput';
-import { pwValidator } from '@src/validation/pwValidator';
+import { pwValidator } from '@src/utils/validation/pwValidator';
 import ToastMessage from '@src/components/common/ToastMessage';
 import { useState } from 'react';
 
