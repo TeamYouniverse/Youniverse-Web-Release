@@ -3,17 +3,10 @@ import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider, { Settings } from 'react-slick';
 import styled from '@emotion/styled';
-import Image from 'next/image';
 import image_1 from '@assets/planet_main.svg';
 import image_2 from '@assets/onboarding_2.svg';
 import image_3 from '@assets/onboarding_3.svg';
-
-interface CarouselContent {
-  id: number;
-  title: string;
-  imageUrl: string;
-  description: string;
-}
+import CarouselPage, { CarouselContent } from './CarouselPage';
 
 function OnboardingCarousel() {
   const pages: CarouselContent[] = [
@@ -61,11 +54,13 @@ function OnboardingCarousel() {
     <Styled.Root>
       <Slider {...sliderProps}>
         {pages?.map((page: CarouselContent) => (
-          <Styled.PageWrapper>
-            <Styled.Title>{page.title}</Styled.Title>
-            <Image width="100vh" height="100vh" src={page.imageUrl} alt="" />
-            <Styled.Description>{page.description}</Styled.Description>
-          </Styled.PageWrapper>
+          <CarouselPage
+            key={page.id}
+            id={page.id}
+            title={page.title}
+            imageUrl={page.imageUrl}
+            description={page.description}
+          />
         ))}
       </Slider>
     </Styled.Root>
@@ -77,29 +72,11 @@ export default OnboardingCarousel;
 const Styled = {
   Root: styled.div`
     width: 100%;
-    height: 70vh;
+    /* height: 70vh; */
     margin: 10vh 0 20vh 0;
 
     .slick-list {
       padding: 0 !important;
     }
-  `,
-  PageWrapper: styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-  `,
-  Title: styled.h1`
-    font-size: 16px;
-    text-align: center;
-    color: #ffffff;
-  `,
-  Description: styled.p`
-    font-size: 15px;
-    line-height: 150%;
-    text-align: center;
-    color: #ffffff;
-    white-space: pre-line;
   `,
 };
