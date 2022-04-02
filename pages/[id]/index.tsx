@@ -45,13 +45,13 @@ function UserSpace() {
     <>
       <Header />
       <Styled.mainWrapper>
-        <Styled.mainPlanetBtn id="main" onClick={onClickHandler} />
+        <Styled.mainPlanetBtn id="main" onClick={onClickHandler} aria-label="글작성 버튼" />
         <Styled.planetTitle>{userName}</Styled.planetTitle>
-        <Styled.happyPlanetBtn id="happy" onClick={onClickHandler} />
-        <Styled.sadPlanetBtn id="sad" onClick={onClickHandler} />
-        <Styled.sorryPlanetBtn id="sorry" onClick={onClickHandler} />
-        <Styled.touchedPlanetBtn id="touched" onClick={onClickHandler} />
-        <Styled.verifyBtn id="verify" onClick={onClickHandler} />
+        <Styled.happyPlanetBtn id="happy" onClick={onClickHandler} aria-label="행복행성 버튼" />
+        <Styled.sadPlanetBtn id="sad" onClick={onClickHandler} aria-label="슬픔행성 버튼" />
+        <Styled.sorryPlanetBtn id="sorry" onClick={onClickHandler} aria-label="미안행성 버튼" />
+        <Styled.touchedPlanetBtn id="touched" onClick={onClickHandler} aria-label="감동행성 버튼" />
+        <Styled.verifyBtn id="verify" onClick={onClickHandler} aria-label="관리자페이지 버튼" />
       </Styled.mainWrapper>
     </>
   );
