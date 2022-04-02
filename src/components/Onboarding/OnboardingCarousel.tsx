@@ -89,10 +89,6 @@ const Styled = {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-
-    & > img {
-      min-height: 200px;
-    }
   `,
   Title: styled.h1`
     font-size: 16px;

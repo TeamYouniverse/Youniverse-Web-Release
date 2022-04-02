@@ -5,20 +5,27 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import planetImage from '@assets/planet_main.svg';
 import IntroduceSentence from '@src/components/common/IntroduceSentence';
-import Message from '@src/components/Landing/Message';
 
 function landing() {
   const router = useRouter();
-  const [order, setOrder] = useState<number>(1);
+  const messages: string[] = [
+    '나만의 우주를 만들어보세요.\n행성이 감정을 담아둘거예요',
+    '함께 느꼈던 감정을 행성에 기록할 친구들을\nYouniverse로 초대할 수 있어요.',
+  ];
+  const [message, setMessage] = useState(messages[0]);
 
   useEffect(() => {
     setInterval(() => {
-      setOrder(order + 1);
-      setTimeout(() => {
-        router.push('/onboarding');
-      }, 1500);
+      switch (message) {
+        case messages[0]:
+          setMessage(messages[1]);
+          break;
+        case messages[1]:
+          router.push('/onboarding');
+          break;
+      }
     }, 1500);
-  }, []);
+  }, [message]);
 
   return (
     <>
@@ -26,7 +33,7 @@ function landing() {
       <Styled.Main>
         <Styled.TextWrapper>
           <IntroduceSentence />
-          <Message order={order} />
+          <p>{message}</p>
         </Styled.TextWrapper>
         <Styled.PlanetWrapper>
           <Image src={planetImage} alt="planet image" />
@@ -60,6 +67,7 @@ const Styled = {
       font-size: 15px;
       line-height: 170%;
       text-align: center;
+      white-space: pre-line;
     }
   `,
 
