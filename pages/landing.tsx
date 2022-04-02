@@ -15,7 +15,7 @@ function landing() {
     setInterval(() => {
       setOrder(order + 1);
       setTimeout(() => {
-        router.push('/');
+        router.push('/onboarding');
       }, 1500);
     }, 1500);
   }, []);
