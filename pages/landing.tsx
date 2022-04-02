@@ -1,18 +1,23 @@
 import styled from '@emotion/styled';
 import Header from '@src/components/common/Header';
-import React, { useState, useEffect, useCallback } from 'react';
+import { useRouter } from 'next/router';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import planetImage from '@assets/planet_main.svg';
 import IntroduceSentence from '@src/components/common/IntroduceSentence';
 import Message from '@src/components/Landing/Message';
 
 function landing() {
-  const [order, setOrder] = useState<'first' | 'second'>('first');
+  const router = useRouter();
+  const [order, setOrder] = useState<number>(1);
 
   useEffect(() => {
     setInterval(() => {
-      setOrder('second');
-    }, 2500);
+      setOrder(order + 1);
+      setTimeout(() => {
+        router.push('/');
+      }, 1500);
+    }, 1500);
   }, []);
 
   return (
