@@ -1,0 +1,222 @@
+{
+  "happy": {
+    "totalCount": 10,
+    "stars": [
+      {
+        "id": 1,
+        "nickname": "고양이냥",
+        "contents": "그날 너무 좋았잖아 우리"
+      },
+      {
+        "id": 2,
+        "nickname": "멍멍이멍",
+        "contents": "행복했어"
+      },
+      {
+        "id": 3,
+        "nickname": "고양이냥",
+        "contents": "그날 너무 좋았잖아 우리"
+      },
+      {
+        "id": 4,
+        "nickname": "멍멍이멍",
+        "contents": "행복했어"
+      },
+      {
+        "id": 5,
+        "nickname": "고양이냥",
+        "contents": "그날 너무 좋았잖아 우리"
+      },
+      {
+        "id": 6,
+        "nickname": "멍멍이멍",
+        "contents": "행복했어"
+      },
+      {
+        "id": 7,
+        "nickname": "고양이냥",
+        "contents": "그날 너무 좋았잖아 우리"
+      },
+      {
+        "id": 8,
+        "nickname": "멍멍이멍",
+        "contents": "행복했어"
+      },
+      {
+        "id": 9,
+        "nickname": "고양이냥",
+        "contents": "그날 너무 좋았잖아 우리"
+      },
+      {
+        "id": 10,
+        "nickname": "멍멍이멍",
+        "contents": "행복했어"
+      }
+    ]
+  },
+  "sad": {
+    "totalCount": 10,
+    "stars": [
+      {
+        "id": 1,
+        "nickname": "고양이냥",
+        "contents": "그날 슬펐어"
+      },
+      {
+        "id": 2,
+        "nickname": "멍멍이멍",
+        "contents": "그날 슬펐어"
+      },
+      {
+        "id": 3,
+        "nickname": "고양이냥",
+        "contents": "그날 슬펐어"
+      },
+      {
+        "id": 4,
+        "nickname": "멍멍이멍",
+        "contents": "그날 슬펐어"
+      },
+      {
+        "id": 5,
+        "nickname": "고양이냥",
+        "contents": "그날 슬펐어"
+      },
+      {
+        "id": 6,
+        "nickname": "멍멍이멍",
+        "contents": "행복했어"
+      },
+      {
+        "id": 7,
+        "nickname": "고양이냥",
+        "contents": "그날 슬펐어"
+      },
+      {
+        "id": 8,
+        "nickname": "멍멍이멍",
+        "contents": "그날 슬펐어"
+      },
+      {
+        "id": 9,
+        "nickname": "고양이냥",
+        "contents": "그날 슬펐어"
+      },
+      {
+        "id": 10,
+        "nickname": "멍멍이멍",
+        "contents": "그날 슬펐어"
+      }
+    ]
+  },
+  "sorry": {
+    "totalCount": 10,
+    "stars": [
+      {
+        "id": 1,
+        "nickname": "고양이냥",
+        "contents": "그날 미안했어"
+      },
+      {
+        "id": 2,
+        "nickname": "멍멍이멍",
+        "contents": "그날 미안했어"
+      },
+      {
+        "id": 3,
+        "nickname": "고양이냥",
+        "contents": "그날 미안했어"
+      },
+      {
+        "id": 4,
+        "nickname": "멍멍이멍",
+        "contents": "그날 미안했어"
+      },
+      {
+        "id": 5,
+        "nickname": "고양이냥",
+        "contents": "그날 미안했어"
+      },
+      {
+        "id": 6,
+        "nickname": "멍멍이멍",
+        "contents": "그날 미안했어"
+      },
+      {
+        "id": 7,
+        "nickname": "고양이냥",
+        "contents": "그날 미안했어"
+      },
+      {
+        "id": 8,
+        "nickname": "멍멍이멍",
+        "contents": "그날 미안했어"
+      },
+      {
+        "id": 9,
+        "nickname": "고양이냥",
+        "contents": "그날 미안했어"
+      },
+      {
+        "id": 10,
+        "nickname": "멍멍이멍",
+        "contents": "그날 미안했어"
+      }
+    ]
+  },
+  "touched": {
+    "totalCount": 10,
+    "stars": [
+      {
+        "id": 1,
+        "nickname": "고양이냥",
+        "contents": "그날 감동이었어"
+      },
+      {
+        "id": 2,
+        "nickname": "멍멍이멍",
+        "contents": "그날 감동이었어"
+      },
+      {
+        "id": 3,
+        "nickname": "고양이냥",
+        "contents": "그날 감동이었어"
+      },
+      {
+        "id": 4,
+        "nickname": "멍멍이멍",
+        "contents": "그날 감동이었어"
+      },
+      {
+        "id": 5,
+        "nickname": "고양이냥",
+        "contents": "그날 감동이었어"
+      },
+      {
+        "id": 6,
+        "nickname": "멍멍이멍",
+        "contents": "그날 감동이었어"
+      },
+      {
+        "id": 7,
+        "nickname": "고양이냥",
+        "contents": "그날 감동이었어"
+      },
+      {
+        "id": 8,
+        "nickname": "멍멍이멍",
+        "contents": "그날 감동이었어"
+      },
+      {
+        "id": 9,
+        "nickname": "고양이냥",
+        "contents": "그날 감동이었어"
+      },
+      {
+        "id": 10,
+        "nickname": "멍멍이멍",
+        "contents": "그날 감동이었어"
+      }
+    ]
+  }
+}

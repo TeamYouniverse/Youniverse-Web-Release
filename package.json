@@ -40,6 +40,7 @@
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
+    "json-server": "^0.17.0",
     "stylelint": "^14.6.1"
   }
 }
