@@ -15,7 +15,8 @@ function landing() {
   const [message, setMessage] = useState(messages[0]);
 
   useEffect(() => {
-    setInterval(() => {
+    console.log('useEffect on hell');
+    let timer = setInterval(() => {
       switch (message) {
         case messages[0]:
           setMessage(messages[1]);
@@ -25,6 +26,7 @@ function landing() {
           break;
       }
     }, 1500);
+    return () => clearTimeout(timer);
   }, [message]);
 
   return (

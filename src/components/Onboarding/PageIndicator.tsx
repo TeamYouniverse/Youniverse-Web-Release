@@ -1,23 +1,29 @@
 import styled from '@emotion/styled';
-import React, { ReactElement } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import starIcon from '@assets/star.svg';
+import { useRouter } from 'next/router';
 
 interface PageProps {
   index: Number;
 }
 
 function PageIndicator({ index }: PageProps) {
-  console.log(index);
-  let sliderRef = React.useRef();
+  const router = useRouter();
+
   const handleSkipClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+    router.push('/');
   };
 
   const handleNextClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    let nextArrow: HTMLButtonElement = document.getElementsByClassName('slick-next')[0];
-    nextArrow.click();
+    if (index < 2) {
+      let nextArrow = document.getElementsByClassName('slick-next')[0] as HTMLElement;
+      nextArrow.click();
+    } else {
+      router.push('/');
+    }
   };
 
   return (
