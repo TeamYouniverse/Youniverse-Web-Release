@@ -35,7 +35,7 @@ function OnboardingCarousel({ updateSlideIndex }: CarouselProps) {
   ];
 
   const sliderProps: Settings = {
-    arrows: false,
+    arrows: true,
     infinite: false,
     autoplay: false,
     pauseOnHover: true,
@@ -76,6 +76,11 @@ const Styled = {
 
     .slick-list {
       padding: 0 !important;
+    }
+
+    .slick-next,
+    .slick-prev {
+      visibility: hidden;
     }
   `,
 };

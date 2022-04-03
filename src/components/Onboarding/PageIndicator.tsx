@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React from 'react';
+import React, { ReactElement } from 'react';
 import Image from 'next/image';
 import starIcon from '@assets/star.svg';
 
@@ -9,12 +9,15 @@ interface PageProps {
 
 function PageIndicator({ index }: PageProps) {
   console.log(index);
+  let sliderRef = React.useRef();
   const handleSkipClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
   };
 
   const handleNextClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+    let nextArrow: HTMLButtonElement = document.getElementsByClassName('slick-next')[0];
+    nextArrow.click();
   };
 
   return (
