@@ -3,13 +3,24 @@ import Header from '@src/components/common/Header';
 import IntroduceSentence from '@src/components/common/IntroduceSentence';
 import RoundButton from '@src/components/common/RoundButton';
 import UnderlinedButton from '@src/components/common/UnderlinedButton';
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import planetImage from '@assets/planet_main.svg';
 import { useRouter } from 'next/router';
+import { keyframes } from '@emotion/react';
+import { css } from '@emotion/react';
 
 function start() {
   const router = useRouter();
+  const [isStartClicked, setIsStartClicked] = useState<boolean>(false);
+
+  const handleStartClicked = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    setIsStartClicked(true);
+    let timer = setTimeout(() => {
+      router.push('/login');
+    }, 2900);
+    return () => clearTimeout(timer);
+  };
 
   return (
     <>
@@ -20,22 +31,16 @@ function start() {
           <p>우선 우주를 만들러 가볼까요?</p>
         </Styled.TextWrapper>
         <Styled.ButtonWrapper>
-          <UnderlinedButton
-            onClick={() => {
-              router.push('/signup');
-            }}
-          >
-            시작
-          </UnderlinedButton>
+          <UnderlinedButton onClick={handleStartClicked}>시작</UnderlinedButton>
           <RoundButton
             handleClick={() => {
-              router.push('/login');
+              router.push('login');
             }}
           >
             이미 우주가 있다면
           </RoundButton>
         </Styled.ButtonWrapper>
-        <Styled.PlanetWrapper>
+        <Styled.PlanetWrapper isStartClicked={isStartClicked}>
           <Image src={planetImage} alt="planet image" />
         </Styled.PlanetWrapper>
       </Styled.Main>
@@ -44,6 +49,13 @@ function start() {
 }
 
 export default start;
+
+const planetAnimation = keyframes`
+  to {
+    opacity: 0.5;
+    bottom: -300px;
+  }
+`;
 
 const Styled = {
   Main: styled.section`
@@ -81,7 +93,7 @@ const Styled = {
     z-index: 10;
   `,
 
-  PlanetWrapper: styled.div`
+  PlanetWrapper: styled.div<{ isStartClicked: boolean }>`
     display: flex;
     justify-content: center;
     position: fixed;
@@ -92,5 +104,13 @@ const Styled = {
       bottom: -130px;
       width: 243px;
     }
+
+    ${(props) =>
+      props.isStartClicked
+        ? css`
+            animation-duration: 3s;
+            animation-name: ${planetAnimation};
+          `
+        : { visibility: 'visible' }}
   `,
 };
