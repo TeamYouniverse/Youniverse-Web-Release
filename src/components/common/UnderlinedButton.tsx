@@ -4,16 +4,11 @@ import React from 'react';
 
 interface ButtonProps {
   children: string;
-  handleClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   [key: string]: any;
 }
 
-function UnderlinedButton({ children, handleClick, ...props }: ButtonProps) {
-  return (
-    <Styled.Root onClick={handleClick} {...props}>
-      {children}
-    </Styled.Root>
-  );
+function UnderlinedButton({ children, ...props }: ButtonProps) {
+  return <Styled.Root {...props}>{children}</Styled.Root>;
 }
 export default UnderlinedButton;
 

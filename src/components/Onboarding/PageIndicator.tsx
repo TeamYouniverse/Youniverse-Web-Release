@@ -13,7 +13,7 @@ function PageIndicator({ index }: PageProps) {
 
   const handleSkipClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    router.push('/');
+    router.push('/start');
   };
 
   const handleNextClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
@@ -22,7 +22,7 @@ function PageIndicator({ index }: PageProps) {
       let nextArrow = document.getElementsByClassName('slick-next')[0] as HTMLElement;
       nextArrow.click();
     } else {
-      router.push('/');
+      router.push('/start');
     }
   };
 

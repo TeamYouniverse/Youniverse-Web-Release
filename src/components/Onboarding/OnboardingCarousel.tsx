@@ -74,12 +74,10 @@ const Styled = {
     /* height: 70vh; */
     margin: 10vh 0 20vh 0;
 
-    .slick-list {
-      padding: 0 !important;
-    }
-
     .slick-next,
     .slick-prev {
+      left: auto;
+      right: auto;
       visibility: hidden;
     }
   `,
