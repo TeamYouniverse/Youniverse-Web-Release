@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import Slider, { Settings } from 'react-slick';
@@ -45,13 +45,20 @@ function OnboardingCarousel({ updateSlideIndex }: CarouselProps) {
     initialSlide: 0,
   };
 
+  const [didScroll, SetDidScroll] = useState<boolean>(false);
+
+  const handleBeforeChange = (beforeSlide) => {
+    didScroll || updateSlideIndex(beforeSlide + 1);
+  };
+
   const handleAfterChange = (currentSlide) => {
+    SetDidScroll(true);
     updateSlideIndex(currentSlide);
   };
 
   return (
     <Styled.Root>
-      <Slider {...sliderProps} afterChange={handleAfterChange}>
+      <Slider {...sliderProps} beforeChange={handleBeforeChange} afterChange={handleAfterChange}>
         {pages?.map((page: CarouselContent) => (
           <CarouselPage
             key={page.id}
