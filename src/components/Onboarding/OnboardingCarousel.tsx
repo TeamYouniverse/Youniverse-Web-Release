@@ -8,7 +8,11 @@ import image_2 from '@assets/onboarding_2.svg';
 import image_3 from '@assets/onboarding_3.svg';
 import CarouselPage, { CarouselContent } from './CarouselPage';
 
-function OnboardingCarousel() {
+interface CarouselProps {
+  updateSlideIndex: React.Dispatch<React.SetStateAction<number>>;
+}
+
+function OnboardingCarousel({ updateSlideIndex }: CarouselProps) {
   const pages: CarouselContent[] = [
     {
       id: 0,
@@ -30,15 +34,6 @@ function OnboardingCarousel() {
     },
   ];
 
-  const getSlideNumber = (minus?: number) => {
-    const length = pages?.length;
-
-    if (!length) return 1;
-    if (!minus) return length + 1;
-
-    return length + 1 - minus;
-  };
-
   const sliderProps: Settings = {
     arrows: false,
     infinite: false,
@@ -50,9 +45,13 @@ function OnboardingCarousel() {
     initialSlide: 0,
   };
 
+  const handleAfterChange = (currentSlide) => {
+    updateSlideIndex(currentSlide);
+  };
+
   return (
     <Styled.Root>
-      <Slider {...sliderProps}>
+      <Slider {...sliderProps} afterChange={handleAfterChange}>
         {pages?.map((page: CarouselContent) => (
           <CarouselPage
             key={page.id}

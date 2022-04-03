@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import imagea from '@assets/onboarding_3.svg';
 
 export interface CarouselContent {
   id: number;
