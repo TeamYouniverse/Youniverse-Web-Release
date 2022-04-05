@@ -99,22 +99,30 @@ const Styled = {
   `,
   Form: styled.form`
     ${flexColumnCenter};
+    font-size: 15px;
     width: 75%;
     .label {
       margin-bottom: 2.96vh;
     }
     margin-bottom: 4.84vh;
+    @media (max-width: 315px) {
+      font-size: 13px;
+    }
   `,
   AdditionalSection: styled.section`
     width: 75%;
     ${flexColumnCenter};
     margin-top: 11.25vh;
+    font-size: 15px;
     .additional-text {
       margin-bottom: 3.59vh;
       line-height: 200%;
       @media (max-width: 767px) {
         line-height: 150%;
       }
+    }
+    @media (max-width: 315px) {
+      font-size: 13px;
     }
   `,
 };
