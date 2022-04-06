@@ -12,21 +12,19 @@ function landing() {
     '나만의 우주를 만들어보세요.\n행성이 감정을 담아둘거예요',
     '함께 느꼈던 감정을 행성에 기록할 친구들을\nYouniverse로 초대할 수 있어요.',
   ];
-  const [message, setMessage] = useState(messages[0]);
+  const [messageIndex, setMessageIndex] = useState(0);
 
   useEffect(() => {
     let timer = setInterval(() => {
-      switch (message) {
-        case messages[0]:
-          setMessage(messages[1]);
-          break;
-        case messages[1]:
-          router.push('/onboarding');
-          break;
+      console.log(messageIndex);
+      if (messages.length - 1 === messageIndex) {
+        router.push('/onboarding');
+      } else {
+        setMessageIndex(messageIndex + 1);
       }
     }, 1500);
     return () => clearTimeout(timer);
-  }, [message]);
+  }, [messageIndex]);
 
   return (
     <>
@@ -34,7 +32,7 @@ function landing() {
       <Styled.Main>
         <Styled.TextWrapper>
           <IntroduceSentence />
-          <p>{message}</p>
+          <p>{messages[messageIndex]}</p>
         </Styled.TextWrapper>
         <Styled.PlanetWrapper>
           <Image src={planetImage} alt="planet image" />
