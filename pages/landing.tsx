@@ -50,10 +50,8 @@ const Styled = {
   `,
 
   TextWrapper: styled.div`
-    display: flex;
-    flex-direction: column;
+    ${flexColumnCenter}
     justify-content: space-between;
-    align-items: center;
     position: relative;
     top: 25vh;
     height: 35vh;
