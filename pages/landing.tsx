@@ -16,7 +16,6 @@ function landing() {
 
   useEffect(() => {
     let timer = setInterval(() => {
-      console.log(messageIndex);
       if (messages.length - 1 === messageIndex) {
         router.push('/onboarding');
       } else {
@@ -35,7 +34,7 @@ function landing() {
           <p>{messages[messageIndex]}</p>
         </Styled.TextWrapper>
         <Styled.PlanetWrapper>
-          <Image src={planetImage} alt="planet image" />
+          <Image width="243px" src={planetImage} alt="planet" />
         </Styled.PlanetWrapper>
       </Styled.Main>
     </>
@@ -75,6 +74,5 @@ const Styled = {
     justify-content: center;
     position: fixed;
     bottom: -130px;
-    width: 243px;
   `,
 };
