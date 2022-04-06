@@ -5,6 +5,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import planetImage from '@assets/planet_main.svg';
 import IntroduceSentence from '@src/components/common/IntroduceSentence';
+import { flexColumnCenter } from '@src/lib/style/mixin';
 
 function landing() {
   const router = useRouter();
@@ -44,10 +45,8 @@ function landing() {
 export default landing;
 
 const Styled = {
-  Main: styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  Main: styled.main`
+    ${flexColumnCenter}
   `,
 
   TextWrapper: styled.div`
