@@ -67,8 +67,6 @@ const Styled = {
   `,
 
   PlanetWrapper: styled.div`
-    display: flex;
-    justify-content: center;
     position: fixed;
     bottom: -130px;
   `,
