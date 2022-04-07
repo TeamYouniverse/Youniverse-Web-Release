@@ -9,6 +9,7 @@ import planetImage from '@assets/planet_main.svg';
 import { useRouter } from 'next/router';
 import { keyframes } from '@emotion/react';
 import { css } from '@emotion/react';
+import { flexColumnCenter } from '@src/lib/style/mixin';
 
 function start() {
   const router = useRouter();
@@ -58,10 +59,8 @@ const planetAnimation = keyframes`
 `;
 
 const Styled = {
-  Main: styled.section`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  Main: styled.main`
+    ${flexColumnCenter}
   `,
 
   TextWrapper: styled.div`
