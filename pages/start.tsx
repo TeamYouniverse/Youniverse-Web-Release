@@ -18,7 +18,7 @@ function start() {
     setIsStartClicked(true);
     let timer = setTimeout(() => {
       router.push('/signup');
-    }, 2900);
+    }, 3000);
     return () => clearTimeout(timer);
   };
 
@@ -110,6 +110,7 @@ const Styled = {
         ? css`
             animation-duration: 3s;
             animation-name: ${planetAnimation};
+            animation-fill-mode: forwards;
           `
         : { visibility: 'visible' }}
   `,
