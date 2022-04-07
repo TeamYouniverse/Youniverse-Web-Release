@@ -14,10 +14,10 @@ function start() {
   const router = useRouter();
   const [isStartClicked, setIsStartClicked] = useState(false);
 
-  const handleStartClicked = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleStartClicked = () => {
     setIsStartClicked(true);
     let timer = setTimeout(() => {
-      router.push('/login');
+      router.push('/signup');
     }, 2900);
     return () => clearTimeout(timer);
   };
