@@ -4,7 +4,7 @@ import PageIndicator from '@src/components/Onboarding/PageIndicator';
 import React, { useState } from 'react';
 
 function onboarding() {
-  const [currSlide, setCurrSlide] = useState<number>(0);
+  const [currSlide, setCurrSlide] = useState(0);
 
   return (
     <>
