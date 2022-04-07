@@ -12,7 +12,7 @@ import { css } from '@emotion/react';
 
 function start() {
   const router = useRouter();
-  const [isStartClicked, setIsStartClicked] = useState<boolean>(false);
+  const [isStartClicked, setIsStartClicked] = useState(false);
 
   const handleStartClicked = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     setIsStartClicked(true);
