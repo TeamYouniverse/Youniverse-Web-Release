@@ -18,7 +18,7 @@ function verify() {
   const [password, setPassword, onChange] = useInput<string>('');
   const [isDisabled, setIsDisabled] = useState(false);
 
-  const clickHandler = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleOnClick = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     router.push('/');
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -53,7 +53,7 @@ function verify() {
             type="number"
             placeholder="ex.0000"
             value={password}
-            sort="middle"
+            align="middle"
             onChange={onChange}
             maxLength={4}
           />
@@ -61,17 +61,17 @@ function verify() {
         <UnderlinedButton handleClick={handleSubmit} disabled={isDisabled}>
           확인
         </UnderlinedButton>
-        <Styled.AdditionalSection>
+        <Styled.CreatePlanet>
           <p className="additional-text">
             우주의 주인이 아니신가요? <br /> 나만의 우주를 만들어보세요.
           </p>
-          <RoundButton handleClick={clickHandler}>우주 생성하러 가기</RoundButton>
+          <RoundButton handleClick={handleOnClick}>우주 생성하러 가기</RoundButton>
           {isWrong && (
             <ToastMessage>
               틀린 비밀번호입니다. <br /> 다시 입력해주세요.
             </ToastMessage>
           )}
-        </Styled.AdditionalSection>
+        </Styled.CreatePlanet>
       </Styled.Main>
     </>
   );
@@ -86,7 +86,6 @@ const Styled = {
     margin-top: 4.84vh;
     ${flexColumnCenter};
     @media (max-width: 767px) {
-      width: 80vw;
       max-width: 400px;
     }
   `,
@@ -109,7 +108,7 @@ const Styled = {
       font-size: 13px;
     }
   `,
-  AdditionalSection: styled.section`
+  CreatePlanet: styled.section`
     width: 75%;
     ${flexColumnCenter};
     margin-top: 11.25vh;

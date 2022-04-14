@@ -2,18 +2,18 @@ import React, { ChangeEvent, InputHTMLAttributes } from 'react';
 import styled from '@emotion/styled';
 import { css } from '@emotion/react';
 
-type Sort = 'left' | 'middle';
+type Align = 'left' | 'middle';
 
 interface InputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 'maxLength'> {
   className?: string;
-  sort: Sort;
+  align: Align;
   valid?: boolean;
   maxLength?: number;
   [key: string]: any;
 }
-function Input({ className, sort, valid = true, maxLength, onChange, ...props }: InputProps) {
+function Input({ className, align, valid = true, maxLength, onChange, ...props }: InputProps) {
   const handleChangeWithMaxLength = (e: ChangeEvent<HTMLInputElement>) => {
-    if (String(e.target.value).length <= maxLength && typeof e.target.value === 'string') {
+    if (String(e.target.value).length <= maxLength && typeof e.target.valueAsNumber === 'number') {
       onChange(e);
     }
   };
@@ -22,7 +22,7 @@ function Input({ className, sort, valid = true, maxLength, onChange, ...props }:
     <>
       <Styled.Input
         className={className}
-        sort={sort}
+        align={align}
         valid={valid}
         onChange={maxLength ? handleChangeWithMaxLength : onChange}
         {...props}
@@ -47,14 +47,7 @@ const Styled = {
       color: white;
       border-bottom: ${({ valid }) => (valid ? '1px solid #FFFFFF' : '1px solid #ffc5c5')};
     }
-    ${({ sort }) =>
-      sort === 'middle'
-        ? css`
-            text-align: center;
-          `
-        : css`
-            text-align: left;
-          `}
+    text-align: ${({ align }) => (align === 'middle' ? 'center' : 'left')};
     &::placeholder {
       color: #565656;
     }
