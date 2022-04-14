@@ -1,6 +1,5 @@
 import React, { ChangeEvent, InputHTMLAttributes } from 'react';
 import styled from '@emotion/styled';
-import { css } from '@emotion/react';
 
 type Align = 'left' | 'middle';
 
