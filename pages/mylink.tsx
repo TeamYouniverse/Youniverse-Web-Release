@@ -11,7 +11,7 @@ import { useRouter } from 'next/router';
 import ToastMessage from '@src/components/common/ToastMessage';
 import { TOAST_DELAY } from '@src/constants';
 
-function Mylink() {
+function mylink() {
   const [toast, setToast] = useState(false);
   const router = useRouter();
 
@@ -51,7 +51,7 @@ function Mylink() {
   );
 }
 
-export default Mylink;
+export default mylink;
 
 const Styled = {
   Root: styled.div`
