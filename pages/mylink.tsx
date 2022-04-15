@@ -33,17 +33,19 @@ function Mylink() {
     <Styled.Root>
       <Header />
       <p>의진 우주가 탄생했습니다.</p>
-      <Styled.ImageWrapper>
-        <Image src={MainPlanet} alt="Main-Planet" width="188px" height="188px" />
-      </Styled.ImageWrapper>
-      <p>링크를 공유하여 감정으로 우주를 채워보세요.</p>
-      <CopyToClipboard text="http://youniverse.kimiw1.ac.kr" onCopy={handleCopy}>
-        <Styled.CopyButton>
-          <div>http://youniverse.kimiw1.ac.kr</div>
-          <Styled.CopyIcon></Styled.CopyIcon>
-        </Styled.CopyButton>
-      </CopyToClipboard>
-      <UnderlinedButton handleClick={handleStart}>우주 진입</UnderlinedButton>
+      <Styled.Main>
+        <Styled.ImageWrapper>
+          <Image src={MainPlanet} alt="Main-Planet" width="188px" height="188px" />
+        </Styled.ImageWrapper>
+        <p>링크를 공유하여 감정으로 우주를 채워보세요.</p>
+        <CopyToClipboard text="http://youniverse.kimiw1.ac.kr" onCopy={handleCopy}>
+          <Styled.CopyButton>
+            <div>http://youniverse.kimiw1.ac.kr</div>
+            <Styled.CopyIcon></Styled.CopyIcon>
+          </Styled.CopyButton>
+        </CopyToClipboard>
+        <UnderlinedButton handleClick={handleStart}>우주 진입</UnderlinedButton>
+      </Styled.Main>
       {toast && <ToastMessage>주소를 복사했습니다.</ToastMessage>}
     </Styled.Root>
   );
@@ -63,6 +65,10 @@ const Styled = {
     & > header {
       margin-bottom: 76px;
     }
+  `,
+
+  Main: styled.main`
+    ${flexColumnCenter}
   `,
 
   ImageWrapper: styled.div`
