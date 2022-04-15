@@ -4,7 +4,9 @@ import React from 'react';
 
 interface ButtonProps {
   children: string;
-  handleClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  handleClick?: (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent> | React.FormEvent<HTMLFormElement>,
+  ) => void;
   [key: string]: any;
 }
 
