@@ -11,7 +11,7 @@ import NameInput from '@src/components/common/NameInput';
 import PwInput from '@src/components/common/PwInput';
 import { validate } from '@src/utils/validations/nameValidator';
 
-function Signup() {
+function signup() {
   const router = useRouter();
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -52,7 +52,7 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default signup;
 
 const Styled = {
   Root: styled.div`

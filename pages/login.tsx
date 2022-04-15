@@ -14,7 +14,7 @@ import { useState } from 'react';
 import { TOAST_DELAY } from '@src/constants';
 import { validate } from '@src/utils/validations/nameValidator';
 
-function Login() {
+function login() {
   const router = useRouter();
   const [toast, setToast] = useState(false);
 
@@ -63,7 +63,7 @@ function Login() {
   );
 }
 
-export default Login;
+export default login;
 
 const Styled = {
   Root: styled.div`
