@@ -75,7 +75,7 @@ const Styled = {
   `,
   Form: styled.form`
     font-size: 15px;
-    color: white;
+    color: ${({ theme }) => theme.color.white};
     ${flexColumnCenter};
     width: 80%;
 
