@@ -17,11 +17,11 @@ function Mylink() {
 
   const handleCopy = () => {
     setToast(true);
-    if (!toast) {
-      setTimeout(() => {
-        setToast(false);
-      }, TOAST_DELAY);
-    }
+
+    if (toast) return;
+    setTimeout(() => {
+      setToast(false);
+    }, TOAST_DELAY);
   };
 
   const handleStart = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
