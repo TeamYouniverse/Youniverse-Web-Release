@@ -2,7 +2,6 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { useRouter } from 'next/router';
 import youniverseLogo from '@assets/logo.svg';
-import Image from 'next/image';
 
 function Header() {
   const router = useRouter();

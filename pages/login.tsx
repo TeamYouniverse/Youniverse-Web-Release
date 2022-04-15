@@ -42,7 +42,7 @@ function Login() {
 
   return (
     <Styled.Root>
-      <Header />
+      <Header></Header>
       <IntroduceSentence />
       <Styled.ImageWrapper>
         <Image src={CenterStar} alt="star" />
