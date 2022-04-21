@@ -69,7 +69,7 @@ const Styled = {
     position: relative;
     top: 20vh;
     height: 35vh;
-    z-index: 10;
+    z-index: 1;
 
     & p {
       color: white;
