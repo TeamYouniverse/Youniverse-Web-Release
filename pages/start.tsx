@@ -87,7 +87,7 @@ const Styled = {
     position: fixed;
     bottom: 0px;
     margin-bottom: 5vh;
-    z-index: 10;
+    z-index: 2;
   `,
 
   PlanetWrapper: styled.div<{ isStartClicked: boolean }>`
